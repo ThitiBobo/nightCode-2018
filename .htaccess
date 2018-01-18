@@ -1,4 +1,3 @@
 Options +FollowSymlinks
 RewriteEngine on
 RewriteRule theater nom.php
-RewriteRule theater showtimes.php
