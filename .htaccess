@@ -1,3 +1,3 @@
 Options +FollowSymlinks
 RewriteEngine on
-RewriteRule theater index.html
+RewriteRule theater nom.php
