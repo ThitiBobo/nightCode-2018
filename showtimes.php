@@ -1,16 +1,18 @@
 <?php
     header('content-type:application/json; charset: UTF-8');
-
+    require 'Database.php';
 
 if ($_SERVER['REQUEST_METHOD']=='GET'){
     if(!isset($_GET['id'])){
-        $array = [
-            ['id' => 1, "name" => "star wars"],
-            ['id' => 2, "name" => "nfdjhg"]
-        ];
-        echo json_encode($array);
+        $stmt = Database::getBDD()->prepare('SELECT * FROM nightcode');
+		$stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+        echo json_encode($result);
     }else{
-        echo json_encode(['id' => $_GET['id'], "name" => "star wars"]);
+        $stmt = Database::getBDD()->prepare('SELECT * FROM nightcode WHERE id = ?');
+		$stmt->execute(array($_GET['id']));
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+        echo json_encode($result);
     }
   }
 else if ($_SERVER['REQUEST_METHOD']=='POST')
