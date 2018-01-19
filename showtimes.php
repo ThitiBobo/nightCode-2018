@@ -15,7 +15,9 @@ if ($_SERVER['REQUEST_METHOD']=='GET'){
   }
 else if ($_SERVER['REQUEST_METHOD']=='POST')
 {
-  echo "post";
+  $array =file_get_contents('php://input');
+
+  echo json_encode($array);
 }
 
 ?>
