@@ -15,9 +15,12 @@ if ($_SERVER['REQUEST_METHOD']=='GET'){
   }
 else if ($_SERVER['REQUEST_METHOD']=='POST')
 {
-  $array =file_get_contents('php://input');
-
-  echo json_encode($array);
+  $array =json_decode(file_get_contents('php://input'), true);
+//  if(isset($array["name"])){
+     echo json_encode(['id' => 1, 'name' => $array['name']]);
+//  }else{
+  //  http_response_code(400);
+  //}
 }
 
 ?>
