@@ -12,7 +12,11 @@ if ($_SERVER['REQUEST_METHOD']=='GET'){
         $stmt = Database::getBDD()->prepare('SELECT * FROM nightcode WHERE id = ?');
 		$stmt->execute(array($_GET['id']));
         $result = $stmt->fetchAll(PDO::FETCH_OBJ);
-        echo json_encode($result);
+        if($result === []){
+            http_response_code(404);
+        }else{
+            echo json_encode($result);
+        }
     }
   }
 else if ($_SERVER['REQUEST_METHOD']=='POST')
