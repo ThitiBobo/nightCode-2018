@@ -1,5 +1,5 @@
 Options +FollowSymlinks
 RewriteEngine on
 RewriteRule theater nom.php
-RewriteRule ^showtimes/([[:alnum:]]+)/?$ showtimes.php?id=$1 [NC,L]
+RewriteRule ^showtimes/(([[:alnum:]]|[[:punct:]]|[[:alnum:]]|[[:punct:]])+)/?$ showtimes.php?id=$1 [NC,L]
 RewriteRule showtimes showtimes.php
