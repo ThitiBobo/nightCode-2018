@@ -3,12 +3,12 @@
     
     if(!isset($_GET['id'])){
         $array = [
-            ['id' => 1],
-            ['id' => 2]
+            ['id' => 1, "name" => "star wars"],
+            ['id' => 2, "name" => "nfdjhg"]
         ];
         echo json_encode($array);
     }else{
-        echo json_encode(['id' => $_GET['id']]);
+        echo json_encode(['id' => $_GET['id'], "name" => "star wars"]);
     }
 
     
